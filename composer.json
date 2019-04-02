@@ -1,0 +1,31 @@
+{
+  "name": "bubooon/simple-tables",
+  "description": "Simple TableView for Laravel",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "datatable",
+    "tableview",
+    "table",
+    "grid"
+  ],
+  "homepage": "https://github.com/bubooon/simple-tables",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Siarhei",
+      "email": "bub0000n@gmail.com",
+      "homepage": "https://github.com/bubooon",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bubooon\\SimpleTables\\": "src"
+    }
+  }
+}
