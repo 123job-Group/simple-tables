@@ -43,17 +43,23 @@ npm run dev
 ```
 
 Add code in layout or page for register JQuery plugin for table.
-```
+```php
 {!! $simpletable ?? '' !!}
 ```
 
 ### Usage (simplest)
 
-```
+```php
 $provider = new BuilderDataProvider((new User)->newQuery());
 $grid = new SimpleTable(['id','email','created_at','updated_at']);
 echo $grid->render();
 ```
+
+### Future planes
+- Add ArrayDataProvider
+- Add screenshots and online demo with examples
+- Add support of multiple tables on one page
+- Add more customization
 
 ## License
 
