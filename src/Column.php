@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services\SimpleTable;
+namespace Bubooon\SimpleTables;
 
 
 class Column

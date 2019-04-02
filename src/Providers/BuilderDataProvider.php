@@ -1,12 +1,12 @@
 <?php
 
 
-namespace App\Services\SimpleTable;
+namespace Bubooon\SimpleTables\Providers;
 
 
 use Illuminate\Database\Eloquent\Builder;
 
-class SimpleTableDataProvider
+class BuilderDataProvider
 {
     private $provider;
     private $paginationConfig = false;

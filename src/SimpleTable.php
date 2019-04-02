@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\SimpleTable;
+namespace Bubooon\SimpleTables;
 
 
 use Illuminate\Pagination\LengthAwarePaginator;
