@@ -1,6 +1,6 @@
 # Lravel Simple Tables
 
-This is simple way to show data in Grids for user.
+This is simple way to show data in grids for user.
 
 ### Installing
 
@@ -51,15 +51,15 @@ Marckup of Simple Tables basad on Twitter Bootstrap 4, but you need include this
 by yourself, if you need it.
 
 ### Usage
-#####Hello world
+####Hello world
 
 ```php
 $provider = new BuilderDataProvider((new User)->newQuery());
 $grid = new SimpleTable($provieder->search(),['id','email','created_at','updated_at']);
 echo $grid->render();
 ```
-#####Advanced
-Setting pagination, default sort and fields for which sorting is available.
+####Advanced
+Setting pagination, default sort and fields for which sorting is available
 ```php
 $provider = new BuilderDataProvider($query, [
     'pagination' => [
@@ -71,13 +71,13 @@ $provider = new BuilderDataProvider($query, [
     ]
 ]);
 ```
-Add filters for columns.
+Add filters for columns
 ```php
 $provider->filter('email', 'email', 'like'); // serach substring
 $provider->filter('was_found', 'was_found'); // strict search
 $provider->filter('transaction_id', 'transaction_id', 'is_null'); //0 - IS NULL, 1 - IS NOT NULL, null - nothing
 ```
-Setting fields for full search.
+Setting fields for full search
 ```php
 $fields = ['email', 'description', 'first_name', 'last_name'];
 $provider->fullSearch($fields);
@@ -97,7 +97,7 @@ if ($last_update = request('date_created')) {
 }
 ```
 
-Setting field in table
+Setting fields in table
 ```php
 $table = new SimpleTable($provider->serch(), [
     'id', //just show value with defautl sorts by this column
@@ -120,12 +120,13 @@ $table = new SimpleTable($provider->serch(), [
     ]
 ], [
     'fullsearch' => true, //add full search field
-    'pageSizes' => [10, 25, 50, 100] //set available sizes of page
+    'pageSizes' => [10, 25, 50, 100], //set available sizes of page,
+    'showFooter' => false //hide table footer
 ]);
 ```
 
 
-### Future planes
+### Features planed
 - Add ArrayDataProvider
 - Add screenshots and online demo with examples
 - Add support of multiple tables on one page
