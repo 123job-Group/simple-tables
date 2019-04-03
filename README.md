@@ -51,14 +51,14 @@ Marckup of Simple Tables basad on Twitter Bootstrap 4, but you need include this
 by yourself, if you need it.
 
 ### Usage
-####Hello world
+Hello world
 
 ```php
 $provider = new BuilderDataProvider((new User)->newQuery());
 $grid = new SimpleTable($provieder->search(),['id','email','created_at','updated_at']);
 echo $grid->render();
 ```
-####Advanced
+
 Setting pagination, default sort and fields for which sorting is available
 ```php
 $provider = new BuilderDataProvider($query, [
