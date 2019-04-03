@@ -2,6 +2,10 @@
 
 This is simple way to show data in grids for user.
 
+**Screenshot:**
+
+![screenshot](https://snag.gy/xQe2A5.jpg)
+
 ### Installing
 
 Add composer package
@@ -105,7 +109,8 @@ $table = new SimpleTable($provider->serch(), [
         'attribute' => 'email',
         'sort' => false, //remove ability to sort by this column
         'filter' => true, //add input[type=text] filter for this column 
-        'label' => 'User email' //set custom header of column
+        'label' => 'User email', //set custom header of column,
+        'style' => 'width:250px' //css style for column
     ],
     [
         'attribute' => 'status',
