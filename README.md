@@ -47,13 +47,83 @@ Add code in layout or page for register JQuery plugin for table.
 {!! $simpletable ?? '' !!}
 ```
 
-### Usage (simplest)
+Marckup of Simple Tables basad on Twitter Bootstrap 4, but you need include this styles 
+by yourself, if you need it.
+
+### Usage
+#####Hello world
 
 ```php
 $provider = new BuilderDataProvider((new User)->newQuery());
-$grid = new SimpleTable(['id','email','created_at','updated_at']);
+$grid = new SimpleTable($provieder->search(),['id','email','created_at','updated_at']);
 echo $grid->render();
 ```
+#####Advanced
+Setting pagination, default sort and fields for which sorting is available.
+```php
+$provider = new BuilderDataProvider($query, [
+    'pagination' => [
+        'pageSize' => 25
+    ],
+    'fieldsList' => ['id', 'email', 'status', 'age', 'created_at'],
+    'sort' => [
+        'id' => 'DESC'
+    ]
+]);
+```
+Add filters for columns.
+```php
+$provider->filter('email', 'email', 'like'); // serach substring
+$provider->filter('was_found', 'was_found'); // strict search
+$provider->filter('transaction_id', 'transaction_id', 'is_null'); //0 - IS NULL, 1 - IS NOT NULL, null - nothing
+```
+Setting fields for full search.
+```php
+$fields = ['email', 'description', 'first_name', 'last_name'];
+$provider->fullSearch($fields);
+```
+
+Add your custom filtering
+```php
+if ($last_update = request('date_created')) {
+    switch ($last_update) {
+        case 1:
+            $provider->whereRaw('str_to_date(result.response ->> "$**.LastUpdatedDate", \'["%d/%m/%Y %T"]\') > now() - INTERVAL 1 WEEK');
+            break;
+        case 2:
+            $provider->whereRaw('str_to_date(result.response ->> "$**.LastUpdatedDate", \'["%d/%m/%Y %T"]\') > now() - INTERVAL 1 MONTH');
+            break;
+    }
+}
+```
+
+Setting field in table
+```php
+$table = new SimpleTable($provider->serch(), [
+    'id', //just show value with defautl sorts by this column
+    [
+        'attribute' => 'email',
+        'sort' => false, //remove ability to sort by this column
+        'filter' => true, //add input[type=text] filter for this column 
+        'label' => 'User email' //set custom header of column
+    ],
+    [
+        'attribute' => 'status',
+        'filter' => [ //add dropdown filter
+            '' => '',
+            1 => 'Available',
+            0 => 'Not available'
+        ],
+        'value' => function($row){
+            return $row->status ? 'available' : 'not available';
+        }
+    ]
+], [
+    'fullsearch' => true, //add full search field
+    'pageSizes' => [10, 25, 50, 100] //set available sizes of page
+]);
+```
+
 
 ### Future planes
 - Add ArrayDataProvider
