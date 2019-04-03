@@ -1,4 +1,4 @@
-# Lravel Simple Tables
+# Laravel Simple Tables
 
 This is simple way to show data in grids for user.
 
