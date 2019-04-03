@@ -132,10 +132,11 @@ $table = new SimpleTable($provider->serch(), [
 
 
 ### Features planed
-- Add ArrayDataProvider
-- Add screenshots and online demo with examples
-- Add support of multiple tables on one page
-- Add more customization
+- ArrayDataProvider
+- Online demo with examples
+- Support of multiple tables on one page
+- More customization
+- Write beautiful code instead of ugliness
 
 ## License
 

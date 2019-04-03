@@ -3,7 +3,7 @@
   "description": "Simple TableView for Laravel",
   "type": "library",
   "license": "MIT",
-  "version": "dev-master",
+  "version": "1.0",
   "keywords": [
     "laravel",
     "datatable",
