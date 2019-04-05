@@ -131,7 +131,7 @@ $table = new SimpleTable($provider->serch(), [
 ```
 
 
-### Features planed
+### Features planned
 - ArrayDataProvider
 - Online demo with examples
 - Support of multiple tables on one page
