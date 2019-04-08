@@ -6,6 +6,16 @@ This is simple way to show data in grids for user.
 
 ![screenshot](https://snag.gy/xQe2A5.jpg)
 
+### Features
+- Show tables with data using Illuminate\Database\Eloquent\Builder
+- Set custom value for coumn using Closure
+- Pagination
+- Change page size
+- Sort by column
+- Filter by column (text input, dropdown)
+- Create your own filters
+- Full search input (search value from text input in list of columns)
+
 ### Installing
 
 Add composer package
