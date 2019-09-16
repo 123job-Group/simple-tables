@@ -6,14 +6,11 @@ namespace Bubooon\SimpleTables;
 
 class Column
 {
-
     private $config;
-
     private $attribute;
     private $value;
     private $label;
     private $style = '';
-
     private $isSort = false;
     private $filter = false;
 

@@ -6,7 +6,7 @@ namespace Bubooon\SimpleTables\Providers;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class BuilderDataProvider
+class BuilderDataProvider implements IDataProvider
 {
     private $provider;
     private $paginationConfig = false;

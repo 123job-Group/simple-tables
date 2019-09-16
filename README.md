@@ -1,6 +1,6 @@
 # Laravel Simple Tables
 
-This is simple way to show data in grids for user.
+This is simple way to show data in tables for users.
 
 **Screenshot:**
 
@@ -8,7 +8,7 @@ This is simple way to show data in grids for user.
 
 ### Features
 - Show tables with data using Illuminate\Database\Eloquent\Builder
-- Set custom value for coumn using Closure
+- Set custom value for column using Closure
 - Pagination
 - Change page size
 - Sort by column
@@ -32,7 +32,7 @@ Bubooon\SimpleTables\SimpleTableServiceProvider::class
 Copy assets
 
 ```
-php artisan vendor:publish --tag=simple-tables --force 
+php artisan vendor:publish --tag=simple-tables
 ```
 
 Add js to app.js
@@ -61,7 +61,7 @@ Add code in layout or page for register JQuery plugin for table.
 {!! $simpletable ?? '' !!}
 ```
 
-Marckup of Simple Tables basad on Twitter Bootstrap 4, but you need include this styles 
+Markup of Simple Tables based on Twitter Bootstrap 4, but you need include these styles 
 by yourself, if you need it.
 
 ### Usage
@@ -69,7 +69,7 @@ Hello world
 
 ```php
 $provider = new BuilderDataProvider((new User)->newQuery());
-$grid = new SimpleTable($provieder->search(),['id','email','created_at','updated_at']);
+$grid = new SimpleTable($provider->search(),['id','email','created_at','updated_at']);
 echo $grid->render();
 ```
 
@@ -134,7 +134,7 @@ $table = new SimpleTable($provider->serch(), [
         }
     ]
 ], [
-    'fullsearch' => true, //add full search field
+    'fullSearch' => true, //add full search field
     'pageSizes' => [10, 25, 50, 100], //set available sizes of page,
     'showFooter' => false //hide table footer
 ]);
@@ -146,7 +146,6 @@ $table = new SimpleTable($provider->serch(), [
 - Online demo with examples
 - Support of multiple tables on one page
 - More customization
-- Write beautiful code instead of ugliness
 
 ## License
 

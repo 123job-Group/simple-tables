@@ -3,12 +3,12 @@
 namespace Bubooon\SimpleTables;
 
 
+use Bubooon\SimpleTables\Providers\IDataProvider;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class SimpleTable
 {
 
-    /* @var \Illuminate\Contracts\Pagination\LengthAwarePaginator|\Illuminate\Database\Eloquent\Collection|static[] $data */
     private $data;
     private $columnsConfig;
     private $columns = [];
@@ -21,11 +21,11 @@ class SimpleTable
     private $pageSizes = [];
     private $showFooter = true;
 
-    public function __construct($data, array $columnsConfig, array $options = [])
+    public function __construct(IDataProvider $provider, array $columnsConfig, array $options = [])
     {
         $this->columnsConfig = $columnsConfig;
         $this->options = $options;
-        $this->data = $data;
+        $this->data = $provider->search();
 
         $this->init();
     }
@@ -34,7 +34,7 @@ class SimpleTable
     public function render(): string
     {
         $container = '<div id="' . $this->id . '">';
-        $container .= $this->buidPreTable();
+        $container .= $this->buildPreTable();
         $container .= $this->buildTable();
         $container .= $this->buildPagination();
         $container .= '</div>';
@@ -44,7 +44,7 @@ class SimpleTable
         return $container;
     }
 
-    private function buidPreTable(): string
+    private function buildPreTable(): string
     {
         $html = '<div class="simple-table-controls">';
         if (count($this->pageSizes)) {
@@ -87,7 +87,7 @@ class SimpleTable
 
     private function registerScripts(): void
     {
-        //TODO need to search way without changes in layout
+        // TODO need to find way without changes in layout
         app('view')->composer('layouts.app', function ($view) {
             return $view->with('simpletable', 'document.addEventListener(\'DOMContentLoaded\', function(){$(\'#' . $this->id . '\').simpletable();});');
         });
