@@ -63,7 +63,7 @@ class Column
         return $html;
     }
 
-    private function buildSortLink($label, $key): string
+    private function buildSortLink(string $label, string $key): string
     {
         $paramVal = request('sort');
         $linkClass = 'sorting';

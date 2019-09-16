@@ -51,7 +51,7 @@ class SimpleTable
             $html .= $this->buildPageSizes();
         }
 
-        if($this->hasFilters){
+        if ($this->hasFilters) {
             $html .= '<button class="btn btn-success btn-sm float-right simple-table-reset">Reset filters</button>';
         }
 
@@ -74,7 +74,7 @@ class SimpleTable
     private function buildPageSizes(): string
     {
         $pageSize = request('pageSize');
-        if(!$pageSize){
+        if (!$pageSize) {
             $pageSize = $this->paginator->perPage();
         }
         $html = '<div class="form-inline float-left">Show&nbsp;<select name="pageSize" class="form-control form-control-sm">';
@@ -133,7 +133,7 @@ class SimpleTable
             $html .= '</tr>';
         }
 
-        if($this->showFooter){
+        if ($this->showFooter) {
             $html .= '</tbody><tfoot>';
             foreach ($this->columns as $item) {
                 $html .= $item->getHeader('td');
