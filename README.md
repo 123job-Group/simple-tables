@@ -21,7 +21,7 @@ This is simple way to show data in tables for users.
 Add composer package
 
 ```
-composer require buboon/simple-tables
+composer require bubooon/simple-tables
 ```
 
 Register provider in config/app.php
