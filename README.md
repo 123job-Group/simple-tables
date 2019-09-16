@@ -69,7 +69,7 @@ Hello world
 
 ```php
 $provider = new BuilderDataProvider((new User)->newQuery());
-$grid = new SimpleTable($provider->search(),['id','email','created_at','updated_at']);
+$grid = new SimpleTable($provider,['id','email','created_at','updated_at']);
 echo $grid->render();
 ```
 
@@ -113,7 +113,7 @@ if ($last_update = request('date_created')) {
 
 Setting fields in table
 ```php
-$table = new SimpleTable($provider->serch(), [
+$table = new SimpleTable($provider, [
     'id', //just show value with defautl sorts by this column
     [
         'attribute' => 'email',
